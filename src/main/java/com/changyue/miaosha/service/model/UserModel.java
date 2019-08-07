@@ -1,5 +1,10 @@
 package com.changyue.miaosha.service.model;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 /**
  * @program: miaosha
  * @description:
@@ -8,14 +13,27 @@ package com.changyue.miaosha.service.model;
  */
 public class UserModel {
     private Integer id;
+
+    @NotBlank(message = "用户名不能为空")
     private String name;
-    private Byte gender;
+
+    @NotNull(message = "性别不能不填写")
+    private Integer gender;
+
+
+    @NotNull(message = "手机号不能不填写")
     private String phone;
+
+    @NotNull(message = "年龄不能不填写")
+    @Min(value = 0,message = "年龄必须大于0")
+    @Max(value = 150,message = "年龄必须小于150")
     private Integer age;
+
     private String registerMode;
     private String thirdPartId;
 
-    private String encrptPassword;
+    @NotNull(message = "手机号不能不填写")
+    private String encryptPassword;
 
     public Integer getId() {
         return id;
@@ -33,11 +51,11 @@ public class UserModel {
         this.name = name;
     }
 
-    public Byte getGender() {
+    public Integer getGender() {
         return gender;
     }
 
-    public void setGender(Byte gender) {
+    public void setGender(Integer gender) {
         this.gender = gender;
     }
 
@@ -73,11 +91,27 @@ public class UserModel {
         this.thirdPartId = thirdPartId;
     }
 
-    public String getEncrptPassword() {
-        return encrptPassword;
+    public String getEncryptPassword() {
+        return encryptPassword;
     }
 
-    public void setEncrptPassword(String encrptPassword) {
-        this.encrptPassword = encrptPassword;
+    public void setEncryptPassword(String encryptPassword) {
+        this.encryptPassword = encryptPassword;
+    }
+
+    @Override
+    public String toString() {
+        return "UserModel{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", gender=" + gender +
+                ", phone='" + phone + '\'' +
+                ", age=" + age +
+                ", registerMode='" + registerMode + '\'' +
+                ", thirdPartId='" + thirdPartId + '\'' +
+                ", encryptPassword='" + encryptPassword + '\'' +
+                '}';
     }
 }
+
+

@@ -7,6 +7,11 @@
 
 
     <context id="DB2Tables" targetRuntime="MyBatis3">
+        <!-- 关闭注释生成 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
                         connectionURL="jdbc:mysql://localhost:3306/miaosha"
                         userId="root"
@@ -30,12 +35,9 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-        <table tableName="user_info" domainObjectName="UserDo" enableCountByExample="false"
-               enableSelectByExample="false" selectByExampleQueryId="false" enableDeleteByExample="false"
-               enableUpdateByExample="false"/>
-        <table tableName="user_password" domainObjectName="UserPasswordDo" enableCountByExample="false"
-               enableSelectByExample="false" selectByExampleQueryId="false" enableDeleteByExample="false"
-               enableUpdateByExample="false"/>
-
+       <!-- <table tableName="promo" domainObjectName="PromoDo"
+               enableCountByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false" enableDeleteByExample="false"
+               enableUpdateByExample="false"/>-->
     </context>
 </generatorConfiguration>

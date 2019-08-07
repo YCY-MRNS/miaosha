@@ -8,13 +8,16 @@ package com.changyue.miaosha.error;
  * 包装器业务异常类实现
  */
 public class BusinessException extends Exception implements CommonError {
+
     private CommonError commonError;
 
+    //业务异常的构造器
     public BusinessException(CommonError commonError) {
         super();
         this.commonError = commonError;
     }
 
+    //自定义的业务异常构造器
     public BusinessException(String message, CommonError commonError) {
         super();
         this.commonError = commonError;

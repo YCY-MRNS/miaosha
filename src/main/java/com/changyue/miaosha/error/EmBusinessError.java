@@ -2,12 +2,18 @@ package com.changyue.miaosha.error;
 
 public enum EmBusinessError implements CommonError {
 
-    //00001通用错误类型
-    PARAMETER_VALIDATION_ERRROR(00001, "参数不合法"),
-    UNLKNOWN_ERRROR(00002, "未知错误"),
+    //10000通用错误类型
+    PARAMETER_VALIDATION_ERROR(10001, "参数不合法"),
+    UNKNOWN_ERROR(10002, "未知错误"),
 
-    //10000关于用户
-    USER_NOT_EXIST(10001, "用户不存在");
+    //20000关于用户状态码
+    USER_NOT_EXIST(20001, "用户不存在"),
+    USER_LOGIN_FAIL(20002,"用户名或者密码错误"),
+    USER_NOT_LOGIN(20003,"用户还未登录"),
+
+    //30000交易信息
+    STOCK_NOT_ENOUGH(30001,"库存不足")
+    ;
 
     private EmBusinessError(int errCode, String errMsg) {
         this.errCode = errCode;
@@ -32,4 +38,5 @@ public enum EmBusinessError implements CommonError {
         this.errMsg = errMsg;
         return this;
     }
+
 }

@@ -7,6 +7,7 @@ package com.changyue.miaosha.controller.viewobject;
  * @create: 2019-07-19 22:21
  */
 public class UserVO {
+
     private Integer id;
     private String name;
     private Byte gender;
